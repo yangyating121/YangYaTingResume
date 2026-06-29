@@ -61,7 +61,7 @@
             margin: 0 6px;
             color: #999;
         }
-        /* 右上角证件照容器 */
+        /* 右上角证件照容器 — 固定尺寸，防止图片巨大 */
         .photo-box {
             width: 110px;
             height: 110px;
@@ -113,6 +113,8 @@
             justify-content: space-between;
             font-size: 14px;
             margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 4px;
         }
         .exp-time {
             color: #444;
@@ -261,7 +263,7 @@
 </head>
 <body>
     <div class="resume-wrap">
-        <!-- 头部：居中文字 + 右上角证件照 -->
+        <!-- 头部：居中文字 + 右上角证件照（已用 photo-box 容器固定尺寸） -->
         <div class="resume-header">
             <div class="header-text">
                 <div class="name-title">杨雅婷</div>
@@ -272,11 +274,9 @@
                     女 <span class="sep">|</span> 22岁 <span class="sep">|</span> 本科 <span class="sep">|</span> 未婚
                 </div>
             </div>
-            <!-- 修改开始：补全了 photo-box 容器，确保照片显示正常 -->
             <div class="photo-box">
                 <img src="photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
             </div>
-            <!-- 修改结束 -->
         </div>
 
         <!-- 求职意向 -->
@@ -315,7 +315,7 @@
             <div class="list-item">6. 在皖南医学院官网发布多篇文章</div>
         </div>
 
-        <!-- 实习经历 -->
+        <!-- 实习经历（完整还原全部工作、AI项目内容+技术标签） -->
         <div class="resume-section">
             <div class="section-title">实习经历</div>
             <!-- 医院开发工作 -->
