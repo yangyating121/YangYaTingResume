@@ -31,7 +31,6 @@
             box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
         }
 
-        /* 头部区域：姓名居中文字 + 右上角证件照 */
         .resume-header {
             display: flex;
             justify-content: space-between;
@@ -61,7 +60,7 @@
             margin: 0 6px;
             color: #999;
         }
-        /* 右上角证件照容器 — 固定尺寸，防止图片巨大 */
+
         .photo-box {
             width: 110px;
             height: 110px;
@@ -80,7 +79,6 @@
             display: block;
         }
 
-        /* 报考信息栏 */
         .apply-info {
             margin: 20px 0;
             padding-bottom: 10px;
@@ -96,7 +94,6 @@
             min-width: 110px;
         }
 
-        /* 通用区块样式 */
         .resume-section {
             margin: 22px 0;
         }
@@ -107,7 +104,7 @@
             border-bottom: 1px solid #333;
             margin-bottom: 10px;
         }
-        /* 经历头部：时间、单位、岗位三栏 */
+
         .exp-head {
             display: flex;
             justify-content: space-between;
@@ -125,24 +122,24 @@
         .exp-post {
             color: #444;
         }
-        /* 列表条目 */
+
         .list-item {
             font-size: 14px;
             line-height: 1.75;
             color: #222;
             padding-left: 2px;
         }
-        /* 技能标签样式（完整还原） */
+
         .skill-group-title {
-            font-size:13px;
-            color:#555;
-            margin:6px 0 3px;
+            font-size: 13px;
+            color: #555;
+            margin: 6px 0 3px;
         }
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
-            margin-bottom:4px;
+            margin-bottom: 4px;
         }
         .skill-tag {
             background: #f0f3f7;
@@ -156,7 +153,7 @@
             background: #e8edf5;
             border-color: #c8d2e0;
         }
-        /* 项目技术小标签 */
+
         .project-chip {
             background: #f0f3f7;
             padding: 0 10px;
@@ -167,7 +164,7 @@
             display: inline-block;
             margin-right: 2px;
         }
-        /* 作品集链接 */
+
         .link-row {
             margin-top: 4px;
             font-size: 14px;
@@ -177,7 +174,7 @@
             text-decoration: none;
             border-bottom: 1px dotted #b0c8e0;
         }
-        /* 其他模块（证书、荣誉、爱好） */
+
         .other-block {
             font-size: 14px;
             line-height: 1.8;
@@ -186,12 +183,10 @@
             margin: 4px 0;
         }
 
-        /* 自我评价 */
         .self-eval .list-item {
             margin: 4px 0;
         }
 
-        /* 底部二维码区域（完整原版样式，JS逻辑未改动） */
         .qr-footer {
             display: flex;
             justify-content: flex-end;
@@ -228,20 +223,38 @@
             margin-top: 1px;
         }
 
-        /* 打印适配：打印时隐藏二维码 */
+        /* ===== 打印样式：保留二维码，去掉背景色和阴影 ===== */
         @media print {
-            .qr-footer {
-                display: none;
-            }
             body {
                 background: #fff;
                 padding: 0;
             }
             .resume-wrap {
                 box-shadow: none;
+                padding: 20px 30px;
+            }
+            .qr-footer {
+                display: flex !important;
+            }
+            .photo-box {
+                border: 1px solid #aaa;
+            }
+            .skill-tag {
+                background: #f0f3f7 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .project-chip {
+                background: #f0f3f7 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .photo-box {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
-        /* 移动端适配 */
+
         @media (max-width: 640px) {
             .resume-header {
                 flex-direction: column;
@@ -263,7 +276,7 @@
 </head>
 <body>
     <div class="resume-wrap">
-        <!-- 头部：居中文字 + 右上角证件照（已用 photo-box 容器固定尺寸） -->
+
         <div class="resume-header">
             <div class="header-text">
                 <div class="name-title">杨雅婷</div>
@@ -279,14 +292,12 @@
             </div>
         </div>
 
-        <!-- 求职意向 -->
         <div class="apply-info">
             <div class="apply-row">
                 <span class="apply-label">求职意向：</span>医疗软件开发 · 微信小程序开发
             </div>
         </div>
 
-        <!-- 教育经历 -->
         <div class="resume-section">
             <div class="section-title">教育经历</div>
             <div class="exp-head">
@@ -299,7 +310,6 @@
             </div>
         </div>
 
-        <!-- 校园活动 -->
         <div class="resume-section">
             <div class="section-title">校园活动</div>
             <div class="exp-head">
@@ -315,10 +325,9 @@
             <div class="list-item">6. 在皖南医学院官网发布多篇文章</div>
         </div>
 
-        <!-- 实习经历（完整还原全部工作、AI项目内容+技术标签） -->
         <div class="resume-section">
             <div class="section-title">实习经历</div>
-            <!-- 医院开发工作 -->
+
             <div class="exp-head">
                 <span class="exp-time">2024.06 – 至今</span>
                 <span class="exp-unit">昆山宗仁卿纪念医院</span>
@@ -337,7 +346,6 @@
                 <span class="project-chip">Oracle</span>
             </div>
 
-            <!-- AI大模型项目 -->
             <div class="exp-head" style="margin-top:12px;">
                 <span class="exp-time">2025 – 至今</span>
                 <span class="exp-unit">AI大模型 · 系统框架</span>
@@ -354,7 +362,6 @@
             </div>
         </div>
 
-        <!-- 项目经历 -->
         <div class="resume-section">
             <div class="section-title">项目经历</div>
             <div style="margin-bottom:8px;">
@@ -390,7 +397,6 @@
             </div>
         </div>
 
-        <!-- 其他 -->
         <div class="resume-section">
             <div class="section-title">其他</div>
             <div class="other-block">
@@ -425,7 +431,6 @@
             </div>
         </div>
 
-        <!-- 自我评价 -->
         <div class="resume-section self-eval">
             <div class="section-title">自我评价</div>
             <div class="list-item">1. 医学背景，跨部门沟通协调能力强，有较强执行力和责任心</div>
@@ -434,7 +439,6 @@
             <div class="list-item">4. 热爱微信小程序开发，具备独立设计与开发能力</div>
         </div>
 
-        <!-- 右下角二维码区块 -->
         <div class="qr-footer">
             <div class="qr-box">
                 <div id="qrcode"></div>
@@ -443,7 +447,6 @@
         </div>
     </div>
 
-    <!-- 二维码生成脚本 -->
     <script>
         (function() {
             var qrContainer = document.getElementById('qrcode');
