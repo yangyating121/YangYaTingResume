@@ -223,7 +223,7 @@
             margin-top: 1px;
         }
 
-        /* ===== 打印样式：保留二维码，去掉背景色和阴影 ===== */
+        /* 打印样式：保留二维码，保留背景色 */
         @media print {
             body {
                 background: #fff;
@@ -231,13 +231,9 @@
             }
             .resume-wrap {
                 box-shadow: none;
-                padding: 20px 30px;
             }
             .qr-footer {
                 display: flex !important;
-            }
-            .photo-box {
-                border: 1px solid #aaa;
             }
             .skill-tag {
                 background: #f0f3f7 !important;
@@ -467,6 +463,19 @@
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
+
+            // 将 Canvas 转为图片，确保打印时显示
+            setTimeout(function() {
+                var qrCanvas = document.querySelector('#qrcode canvas');
+                if (qrCanvas) {
+                    var img = document.createElement('img');
+                    img.src = qrCanvas.toDataURL('image/png');
+                    img.style.width = '68px';
+                    img.style.height = '68px';
+                    img.style.display = 'block';
+                    qrCanvas.parentNode.replaceChild(img, qrCanvas);
+                }
+            }, 200);
         })();
     </script>
 </body>
