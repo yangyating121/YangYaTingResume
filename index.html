@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>杨雅婷 · 简历</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
+    </script>
     <style>
         * {
             margin: 0;
@@ -65,6 +66,12 @@
             width: 110px;
             height: 110px;
             border: 1px solid #ddd;
+            flex-shrink: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f7fa;
         }
         .photo-box img {
             width: 100%;
@@ -254,7 +261,7 @@
 </head>
 <body>
     <div class="resume-wrap">
-        <!-- 头部：居中文字 + 右上角本地证件照 -->
+        <!-- 头部：居中文字 + 右上角证件照 -->
         <div class="resume-header">
             <div class="header-text">
                 <div class="name-title">杨雅婷</div>
@@ -265,7 +272,11 @@
                     女 <span class="sep">|</span> 22岁 <span class="sep">|</span> 本科 <span class="sep">|</span> 未婚
                 </div>
             </div>
-           <img src="photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
+            <!-- 修改开始：补全了 photo-box 容器，确保照片显示正常 -->
+            <div class="photo-box">
+                <img src="photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
+            </div>
+            <!-- 修改结束 -->
         </div>
 
         <!-- 求职意向 -->
@@ -304,7 +315,7 @@
             <div class="list-item">6. 在皖南医学院官网发布多篇文章</div>
         </div>
 
-        <!-- 实习经历（完整还原全部工作、AI项目内容+技术标签） -->
+        <!-- 实习经历 -->
         <div class="resume-section">
             <div class="section-title">实习经历</div>
             <!-- 医院开发工作 -->
@@ -383,7 +394,6 @@
         <div class="resume-section">
             <div class="section-title">其他</div>
             <div class="other-block">
-                <div class="other-line">
                 <div class="other-line"><b>荣誉奖项：</b>优秀信息员、校内优秀班干部、安徽省大数据竞赛二等奖、创新创业大赛优秀奖、多次校级奖学金</div>
 
                 <div class="skill-group-title">核心语言 & 框架</div>
