@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>杨雅婷 · 简历</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef1f6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            padding: 40px 20px;
+        }
+
+        .resume-wrap {
+            max-width: 850px;
+            width: 100%;
+            background: #ffffff;
+            padding: 36px 42px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 头部区域：姓名居中文字 + 右上角证件照 */
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+        .name-title {
+            font-size: 30px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 6px;
+        }
+        .contact-line {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .base-info-line {
+            font-size: 14px;
+            color: #333;
+        }
+        .sep {
+            margin: 0 6px;
+            color: #999;
+        }
+        /* 右上角证件照容器 */
+        .photo-box {
+            width: 110px;
+            height: 110px;
+            border: 1px solid #ddd;
+        }
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 报考信息栏 */
+        .apply-info {
+            margin: 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .apply-row {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .apply-label {
+            font-weight: 600;
+            display: inline-block;
+            min-width: 110px;
+        }
+
+        /* 通用区块样式 */
+        .resume-section {
+            margin: 22px 0;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 10px;
+        }
+        /* 经历头部：时间、单位、岗位三栏 */
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .exp-time {
+            color: #444;
+        }
+        .exp-unit {
+            font-weight: 600;
+        }
+        .exp-post {
+            color: #444;
+        }
+        /* 列表条目 */
+        .list-item {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #222;
+            padding-left: 2px;
+        }
+        /* 技能标签样式（完整还原） */
+        .skill-group-title {
+            font-size:13px;
+            color:#555;
+            margin:6px 0 3px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom:4px;
+        }
+        .skill-tag {
+            background: #f0f3f7;
+            padding: 2px 10px;
+            border-radius: 2px;
+            font-size: 12px;
+            color: #2c3e50;
+            border: 1px solid #e3e8ef;
+        }
+        .skill-tag.highlight {
+            background: #e8edf5;
+            border-color: #c8d2e0;
+        }
+        /* 项目技术小标签 */
+        .project-chip {
+            background: #f0f3f7;
+            padding: 0 10px;
+            font-size: 11px;
+            color: #2c3e50;
+            border: 1px solid #e3e8ef;
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 2px;
+        }
+        /* 作品集链接 */
+        .link-row {
+            margin-top: 4px;
+            font-size: 14px;
+        }
+        .link-row a {
+            color: #1a5a8a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b0c8e0;
+        }
+        /* 其他模块（证书、荣誉、爱好） */
+        .other-block {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .other-line {
+            margin: 4px 0;
+        }
+
+        /* 自我评价 */
+        .self-eval .list-item {
+            margin: 4px 0;
+        }
+
+        /* 底部二维码区域（完整原版样式，JS逻辑未改动） */
+        .qr-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 14px;
+            border-top: 1px solid #e9edf2;
+        }
+        .qr-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fafbfc;
+            padding: 5px 8px 3px 8px;
+            border: 1px solid #e3e8ef;
+            border-radius: 4px;
+        }
+        #qrcode {
+            width: 68px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #qrcode img,
+        #qrcode canvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+        .qr-label {
+            font-size: 10px;
+            color: #90a4ae;
+            letter-spacing: 0.3px;
+            margin-top: 1px;
+        }
+
+        /* 打印适配：打印时隐藏二维码 */
+        @media print {
+            .qr-footer {
+                display: none;
+            }
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .resume-wrap {
+                box-shadow: none;
+            }
+        }
+        /* 移动端适配 */
+        @media (max-width: 640px) {
+            .resume-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            .photo-box {
+                width: 90px;
+                height: 90px;
+            }
+            .resume-wrap {
+                padding: 20px 16px;
+            }
+            .qr-footer {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-wrap">
+        <!-- 头部：居中文字 + 右上角本地证件照 -->
+        <div class="resume-header">
+            <div class="header-text">
+                <div class="name-title">杨雅婷</div>
+                <div class="contact-line">
+                    13685539492 <span class="sep">|</span> 1963853556@qq.com
+                </div>
+                <div class="base-info-line">
+                    女 <span class="sep">|</span> 22岁 <span class="sep">|</span> 本科 <span class="sep">|</span> 未婚
+                </div>
+            </div>
+            <div class="photo-box">
+                <img src="C:\Users\lenovo\Desktop\YangYaTingResume\photo.jpg" alt="证件照"
+                     onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
+            </div>
+        </div>
+
+        <!-- 求职意向 -->
+        <div class="apply-info">
+            <div class="apply-row">
+                <span class="apply-label">求职意向：</span>医疗软件开发 · 微信小程序开发
+            </div>
+        </div>
+
+        <!-- 教育经历 -->
+        <div class="resume-section">
+            <div class="section-title">教育经历</div>
+            <div class="exp-head">
+                <span class="exp-time">2021.09–2025.06</span>
+                <span class="exp-unit">皖南医科大学</span>
+                <span class="exp-post">智能医学工程（本科）</span>
+            </div>
+            <div class="list-item">
+                1.主修课程：Python程序设计、Java程序设计、C语言程序设计、数据结构与算法、数据库原理与应用、医学图像处理、医院信息系统
+            </div>
+        </div>
+
+        <!-- 校园活动 -->
+        <div class="resume-section">
+            <div class="section-title">校园活动</div>
+            <div class="exp-head">
+                <span class="exp-time">2021.09–2025.06</span>
+                <span class="exp-unit">学院文摄部 · 苔花党员志愿服务队</span>
+                <span class="exp-post">部长</span>
+            </div>
+            <div class="list-item">1. 担任学院文摄部部长，负责学院宣传工作及活动策划</div>
+            <div class="list-item">2. 担任苔花党员志愿服务队策划部部长，组织策划多项志愿服务活动</div>
+            <div class="list-item">3. 安徽省大数据竞赛二等奖</div>
+            <div class="list-item">4. 创新创业大赛优秀奖</div>
+            <div class="list-item">5. 多次获得校级奖学金</div>
+            <div class="list-item">6. 在皖南医学院官网发布多篇文章</div>
+        </div>
+
+        <!-- 实习经历（完整还原全部工作、AI项目内容+技术标签） -->
+        <div class="resume-section">
+            <div class="section-title">实习经历</div>
+            <!-- 医院开发工作 -->
+            <div class="exp-head">
+                <span class="exp-time">2024.06 – 至今</span>
+                <span class="exp-unit">昆山宗仁卿纪念医院</span>
+                <span class="exp-post">资讯室 .NET开发</span>
+            </div>
+            <div class="list-item">1. HRP资源管理系统 数据挖掘模块自研，亿级数据SQL调优，查询性能提升10倍</div>
+            <div class="list-item">2. NIS护嘱系统 新生儿虚床、给号、费用结算关账功能开发</div>
+            <div class="list-item">3. 数据挖掘、清洗、统计与可视化，PACS基础原理对接</div>
+            <div class="list-item">4. 跨部门沟通协调，自主设计业务数据表及关联逻辑</div>
+            <div class="list-item">5. 住院护理Web系统 MVP 搭建 (ASP.NET Core MVC)</div>
+            <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:3px;">
+                <span class="project-chip">C#</span>
+                <span class="project-chip">.NET Core</span>
+                <span class="project-chip">LayUI</span>
+                <span class="project-chip">SQL Server</span>
+                <span class="project-chip">Oracle</span>
+            </div>
+
+            <!-- AI大模型项目 -->
+            <div class="exp-head" style="margin-top:12px;">
+                <span class="exp-time">2025 – 至今</span>
+                <span class="exp-unit">AI大模型 · 系统框架</span>
+                <span class="exp-post">内部 / 个人项目</span>
+            </div>
+            <div class="list-item">1. 基于 Spring Boot 3 + LangChain4j 搭建 AI 应用框架，集成 DeepSeek、通义模型</div>
+            <div class="list-item">2. 利用 Redis 实现对话记忆持久化，多轮会话隔离</div>
+            <div class="list-item">3. 自定义 TokenStream 处理器，Agent 执行透明化</div>
+            <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:3px;">
+                <span class="project-chip">Java</span>
+                <span class="project-chip">Spring Boot</span>
+                <span class="project-chip">LangChain4j</span>
+                <span class="project-chip">Redis</span>
+            </div>
+        </div>
+
+        <!-- 项目经历 -->
+        <div class="resume-section">
+            <div class="section-title">项目经历</div>
+            <div style="margin-bottom:8px;">
+                <div class="exp-head">
+                    <span class="exp-unit">AI 应用生成平台 <span style="font-weight:400; font-size:13px; color:#78909c;">(个人项目)</span></span>
+                    <span class="exp-time">2025.11 – 2026.01</span>
+                </div>
+                <div class="list-item">基于 Spring Boot + LangChain4j，支持原生网页/Vue工程生成，结构化输出与策略模式。</div>
+            </div>
+            <div style="margin-bottom:8px;">
+                <div class="exp-head">
+                    <span class="exp-unit">NIS护嘱系统 · 智能管理 <span style="font-weight:400; font-size:13px; color:#78909c;">(在岗开发)</span></span>
+                    <span class="exp-time">2025.03 – 至今</span>
+                </div>
+                <div class="list-item">新生儿虚床、给号、关账等核心功能，患者智能管理，.NET + LayUI 前后端协作。</div>
+            </div>
+            <div>
+                <div class="exp-head">
+                    <span class="exp-unit">点餐小程序 <span style="font-weight:400; font-size:13px; color:#78909c;">(个人设计)</span></span>
+                    <span class="exp-time">2025.08 – 2025.10</span>
+                </div>
+                <div class="list-item">手动设计并开发微信点餐小程序，包含菜单浏览、购物车、订单管理、支付模拟等核心功能。</div>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <div class="section-title">作品集</div>
+            <div class="link-row">
+                CSDN：<a href="https://blog.csdn.net/weixin_67480430?type=blog" target="_blank">https://blog.csdn.net/weixin_67480430?type=blog</a>
+            </div>
+            <div class="link-row">
+                GitHub：<a href="https://github.com/yangyaating121" target="_blank">https://github.com/yangyaating121</a>
+            </div>
+        </div>
+
+        <!-- 其他 -->
+        <div class="resume-section">
+            <div class="section-title">其他</div>
+            <div class="other-block">
+                <div class="other-line">
+                <div class="other-line"><b>荣誉奖项：</b>优秀信息员、校内优秀班干部、安徽省大数据竞赛二等奖、创新创业大赛优秀奖、多次校级奖学金</div>
+
+                <div class="skill-group-title">核心语言 & 框架</div>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">C#</span>
+                    <span class="skill-tag highlight">.NET Core</span>
+                    <span class="skill-tag highlight">LayUI</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Vue</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">微信小程序</span>
+                </div>
+                <div class="skill-group-title">数据库 & 工具</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">Oracle</span>
+                    <span class="skill-tag">PLSQL Developer</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+                <div class="skill-group-title">医疗 / AI</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">PACS 基础</span>
+                    <span class="skill-tag">数据挖掘</span>
+                    <span class="skill-tag">LangChain4j</span>
+                    <span class="skill-tag">AI 集成</span>
+                </div>
+
+                <div class="other-line"><b>兴趣爱好：</b>书法、绘画、长跑、登山、乒乓球、音乐</div>
+            </div>
+        </div>
+
+        <!-- 自我评价 -->
+        <div class="resume-section self-eval">
+            <div class="section-title">自我评价</div>
+            <div class="list-item">1. 医学背景，跨部门沟通协调能力强，有较强执行力和责任心</div>
+            <div class="list-item">2. 能吃苦耐劳，善于钻研新技术，从实际出发解决问题</div>
+            <div class="list-item">3. 可解决重装系统等硬件问题，代码整洁，有编程追求</div>
+            <div class="list-item">4. 热爱微信小程序开发，具备独立设计与开发能力</div>
+        </div>
+
+        <!-- 右下角二维码区块 -->
+        <div class="qr-footer">
+            <div class="qr-box">
+                <div id="qrcode"></div>
+                <span class="qr-label">扫码看电子版</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 二维码生成脚本 -->
+    <script>
+        (function() {
+            var qrContainer = document.getElementById('qrcode');
+            if (!qrContainer) return;
+
+            var url = window.location.href;
+
+            if (url.startsWith('file://')) {
+                url = 'https://yangyaating121.github.io/YangYaTingResume/';
+                console.warn('本地预览，二维码使用占位链接。部署后自动生效。');
+            }
+
+            new QRCode(qrContainer, {
+                text: url,
+                width: 68,
+                height: 68,
+                colorDark: '#1a2a3a',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        })();
+    </script>
+</body>
+</html>
