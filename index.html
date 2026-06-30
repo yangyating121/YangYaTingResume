@@ -105,20 +105,43 @@
             margin-bottom: 10px;
         }
 
-        /* 技术栈独立样式，更突出 */
-        .tech-stack-section {
+        /* ===== 技术栈 - 确保可见 ===== */
+        .tech-stack-wrapper {
             margin: 18px 0 22px 0;
             padding: 16px 18px;
-            background: #f7f9fc;
+            background: #f0f4fa;
             border-radius: 6px;
-            border: 1px solid #e3e8ef;
+            border: 1px solid #d0d9e6;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
-        .tech-stack-section .section-title {
-            border-bottom-color: #b8c8dd;
+        .tech-stack-wrapper .section-title {
+            border-bottom-color: #b0c4dd;
             margin-bottom: 12px;
+            color: #1a2a3a;
         }
-        .tech-stack-section .skill-tags {
-            margin-bottom: 2px;
+        .tech-stack-wrapper .skill-tags {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 5px !important;
+            margin-bottom: 4px !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .tech-stack-wrapper .skill-tag {
+            background: #e8edf5;
+            padding: 3px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #1a2a3a;
+            border: 1px solid #c8d2e0;
+            display: inline-block !important;
+        }
+        .tech-stack-wrapper .skill-tag.highlight {
+            background: #d5e0ec;
+            border-color: #a0b8d0;
+            font-weight: 500;
         }
 
         .exp-head {
@@ -241,7 +264,7 @@
             margin-top: 2px;
         }
 
-        /* 打印样式：保留二维码，保留背景色 */
+        /* 打印样式 */
         @media print {
             body {
                 background: #fff;
@@ -267,8 +290,14 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            .tech-stack-section {
-                background: #f7f9fc !important;
+            .tech-stack-wrapper {
+                background: #f0f4fa !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                border: 1px solid #b0c4dd !important;
+            }
+            .tech-stack-wrapper .skill-tag {
+                background: #e8edf5 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -304,7 +333,7 @@
                 width: 70px !important;
                 height: 70px !important;
             }
-            .tech-stack-section {
+            .tech-stack-wrapper {
                 padding: 12px 14px;
             }
         }
@@ -334,10 +363,10 @@
             </div>
         </div>
 
-        <!-- ========= 技术栈（独立模块，带背景色突出显示） ========= -->
-        <div class="tech-stack-section">
+        <!-- ===== 技术栈 - 独立模块，强制可见 ===== -->
+        <div class="tech-stack-wrapper">
             <div class="section-title">技术栈</div>
-            <div class="skill-tags" style="margin-bottom:6px;">
+            <div class="skill-tags">
                 <span class="skill-tag highlight">C#</span>
                 <span class="skill-tag highlight">.NET Core</span>
                 <span class="skill-tag highlight">LayUI</span>
@@ -347,7 +376,7 @@
                 <span class="skill-tag">Vue</span>
                 <span class="skill-tag">微信小程序</span>
             </div>
-            <div class="skill-tags" style="margin-bottom:6px;">
+            <div class="skill-tags">
                 <span class="skill-tag">SQL Server</span>
                 <span class="skill-tag">Oracle</span>
                 <span class="skill-tag">PLSQL Developer</span>
@@ -375,11 +404,10 @@
             </div>
         </div>
 
-        <!-- ========= 工作经历（专业详细） ========= -->
+        <!-- ========= 工作经历 ========= -->
         <div class="resume-section">
             <div class="section-title">工作经历</div>
 
-            <!-- 1. 昆山宗仁卿纪念医院 -->
             <div class="exp-head">
                 <span class="exp-time">2024.06 – 至今</span>
                 <span class="exp-unit">昆山宗仁卿纪念医院 · 资讯室</span>
@@ -410,7 +438,6 @@
                 <span class="project-chip">PLSQL</span>
             </div>
 
-            <!-- 2. AI大模型系统框架 -->
             <div class="exp-head" style="margin-top:18px;">
                 <span class="exp-time">2025.01 – 至今</span>
                 <span class="exp-unit">AI大模型 · 系统框架 (内部孵化项目)</span>
@@ -485,7 +512,7 @@
             </div>
         </div>
 
-        <!-- ========= 其他（荣誉 + 兴趣） ========= -->
+        <!-- ========= 其他 ========= -->
         <div class="resume-section">
             <div class="section-title">其他</div>
             <div class="other-block">
@@ -524,10 +551,8 @@
                 console.warn('本地预览，二维码使用占位链接。部署后自动生效。');
             }
 
-            // 清空容器，避免重复渲染
             qrContainer.innerHTML = '';
 
-            // 生成二维码
             var qr = new QRCode(qrContainer, {
                 text: url,
                 width: 80,
@@ -537,7 +562,6 @@
                 correctLevel: QRCode.CorrectLevel.H
             });
 
-            // 确保二维码完整显示：将 canvas 转为 img，并保留清晰度
             setTimeout(function() {
                 var canvas = qrContainer.querySelector('canvas');
                 if (canvas) {
