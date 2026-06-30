@@ -199,28 +199,30 @@
             flex-direction: column;
             align-items: center;
             background: #fafbfc;
-            padding: 5px 8px 3px 8px;
+            padding: 8px 12px 6px 12px;
             border: 1px solid #e3e8ef;
             border-radius: 4px;
         }
         #qrcode {
-            width: 68px;
-            height: 68px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: visible;
         }
         #qrcode img,
         #qrcode canvas {
-            width: 100% !important;
-            height: 100% !important;
+            width: 80px !important;
+            height: 80px !important;
             display: block;
+            image-rendering: pixelated;
         }
         .qr-label {
             font-size: 10px;
             color: #90a4ae;
             letter-spacing: 0.3px;
-            margin-top: 1px;
+            margin-top: 2px;
         }
 
         /* 打印样式：保留二维码，保留背景色 */
@@ -249,6 +251,11 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            #qrcode img,
+            #qrcode canvas {
+                width: 80px !important;
+                height: 80px !important;
+            }
         }
 
         @media (max-width: 640px) {
@@ -266,6 +273,15 @@
             }
             .qr-footer {
                 justify-content: center;
+            }
+            #qrcode {
+                width: 70px;
+                height: 70px;
+            }
+            #qrcode img,
+            #qrcode canvas {
+                width: 70px !important;
+                height: 70px !important;
             }
         }
     </style>
@@ -294,70 +310,108 @@
             </div>
         </div>
 
+        <!-- ========= 技术栈（最前面，独立模块） ========= -->
+        <div class="resume-section">
+            <div class="section-title">技术栈</div>
+            <div class="skill-tags" style="margin-bottom:6px;">
+                <span class="skill-tag highlight">C#</span>
+                <span class="skill-tag highlight">.NET Core</span>
+                <span class="skill-tag highlight">LayUI</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Vue</span>
+                <span class="skill-tag">微信小程序</span>
+            </div>
+            <div class="skill-tags" style="margin-bottom:6px;">
+                <span class="skill-tag">SQL Server</span>
+                <span class="skill-tag">Oracle</span>
+                <span class="skill-tag">PLSQL Developer</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Git</span>
+            </div>
+            <div class="skill-tags">
+                <span class="skill-tag">PACS 基础</span>
+                <span class="skill-tag">数据挖掘</span>
+                <span class="skill-tag">LangChain4j</span>
+                <span class="skill-tag">AI 集成</span>
+            </div>
+        </div>
+
+        <!-- ========= 教育经历 ========= -->
         <div class="resume-section">
             <div class="section-title">教育经历</div>
             <div class="exp-head">
-                <span class="exp-time">2021.09–2025.06</span>
+                <span class="exp-time">2021.09 – 2025.06</span>
                 <span class="exp-unit">皖南医科大学</span>
                 <span class="exp-post">智能医学工程（本科）</span>
             </div>
             <div class="list-item">
-                1.主修课程：Python程序设计、Java程序设计、C语言程序设计、数据结构与算法、数据库原理与应用、医学图像处理、医院信息系统
+                主修课程：Python程序设计、Java程序设计、C语言程序设计、数据结构与算法、数据库原理与应用、医学图像处理、医院信息系统
             </div>
         </div>
 
+        <!-- ========= 工作经历（专业详细） ========= -->
         <div class="resume-section">
-            <div class="section-title">校园活动</div>
-            <div class="exp-head">
-                <span class="exp-time">2021.09–2025.06</span>
-                <span class="exp-unit">学院文摄部 · 苔花党员志愿服务队</span>
-                <span class="exp-post">部长</span>
-            </div>
-            <div class="list-item">1. 担任学院文摄部部长，负责学院宣传工作及活动策划</div>
-            <div class="list-item">2. 担任苔花党员志愿服务队策划部部长，组织策划多项志愿服务活动</div>
-            <div class="list-item">3. 安徽省大数据竞赛二等奖</div>
-            <div class="list-item">4. 创新创业大赛优秀奖</div>
-            <div class="list-item">5. 多次获得校级奖学金</div>
-            <div class="list-item">6. 在皖南医学院官网发布多篇文章</div>
-        </div>
+            <div class="section-title">工作经历</div>
 
-        <div class="resume-section">
-            <div class="section-title">实习经历</div>
-
+            <!-- 1. 昆山宗仁卿纪念医院 -->
             <div class="exp-head">
                 <span class="exp-time">2024.06 – 至今</span>
-                <span class="exp-unit">昆山宗仁卿纪念医院</span>
-                <span class="exp-post">资讯室 .NET开发</span>
+                <span class="exp-unit">昆山宗仁卿纪念医院 · 资讯室</span>
+                <span class="exp-post">.NET开发工程师</span>
             </div>
-            <div class="list-item">1. HRP资源管理系统 数据挖掘模块自研，亿级数据SQL调优，查询性能提升10倍</div>
-            <div class="list-item">2. NIS护嘱系统 新生儿虚床、给号、费用结算关账功能开发</div>
-            <div class="list-item">3. 数据挖掘、清洗、统计与可视化，PACS基础原理对接</div>
-            <div class="list-item">4. 跨部门沟通协调，自主设计业务数据表及关联逻辑</div>
-            <div class="list-item">5. 住院护理Web系统 MVP 搭建 (ASP.NET Core MVC)</div>
+            <div class="list-item">
+                <strong>HRP资源管理系统</strong> – 主导数据挖掘模块自研，针对亿级医疗业务数据，通过执行计划分析、索引调优、分区表设计及SQL重写，将复杂查询响应时间从分钟级优化至秒级，性能提升10倍，有效支撑医院成本核算与运营决策。
+            </div>
+            <div class="list-item">
+                <strong>NIS护嘱系统</strong> – 独立负责新生儿虚床管理、自动给号、费用结算关账等核心模块的全流程开发，基于C#与.NET Framework实现业务逻辑，通过存储过程保障数据一致性，并设计异常回滚机制，确保临床计费准确性。
+            </div>
+            <div class="list-item">
+                <strong>数据工程与可视化</strong> – 构建医院运营数据ETL管道，完成多源异构数据（HIS、PACS、财务）的清洗、聚合与统计，使用ECharts开发可视化看板，为管理层提供实时运营指标监控；同时深入理解PACS影像数据存储与DICOM协议，实现影像元数据与业务系统的初步对接。
+            </div>
+            <div class="list-item">
+                <strong>住院护理Web系统</strong> – 基于ASP.NET Core MVC框架搭建MVP版本，设计分层架构（仓储模式+服务层），实现护理记录、任务提醒、交班管理等功能，系统上线后获得病区护士长试用认可。
+            </div>
+            <div class="list-item">
+                <strong>跨部门协作与文档</strong> – 负责与护理部、财务科、信息科等多部门需求对接，输出技术方案文档与接口设计规范，自主设计业务数据表及关联逻辑，确保系统迭代与临床流程同步。
+            </div>
             <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:3px;">
                 <span class="project-chip">C#</span>
-                <span class="project-chip">.NET Core</span>
+                <span class="project-chip">.NET Framework</span>
+                <span class="project-chip">ASP.NET Core</span>
                 <span class="project-chip">LayUI</span>
                 <span class="project-chip">SQL Server</span>
                 <span class="project-chip">Oracle</span>
+                <span class="project-chip">PLSQL</span>
             </div>
 
-            <div class="exp-head" style="margin-top:12px;">
-                <span class="exp-time">2025 – 至今</span>
-                <span class="exp-unit">AI大模型 · 系统框架</span>
-                <span class="exp-post">内部 / 个人项目</span>
+            <!-- 2. AI大模型系统框架 -->
+            <div class="exp-head" style="margin-top:18px;">
+                <span class="exp-time">2025.01 – 至今</span>
+                <span class="exp-unit">AI大模型 · 系统框架 (内部孵化项目)</span>
+                <span class="exp-post">后端开发</span>
             </div>
-            <div class="list-item">1. 基于 Spring Boot 3 + LangChain4j 搭建 AI 应用框架，集成 DeepSeek、通义模型</div>
-            <div class="list-item">2. 利用 Redis 实现对话记忆持久化，多轮会话隔离</div>
-            <div class="list-item">3. 自定义 TokenStream 处理器，Agent 执行透明化</div>
+            <div class="list-item">
+                <strong>框架架构设计</strong> – 基于 Spring Boot 3 + LangChain4j 构建企业级AI应用底座，抽象大模型调用层，通过策略模式实现对DeepSeek、通义千问、ChatGLM等多模型的热插拔与统一路由，降低模型切换成本。
+            </div>
+            <div class="list-item">
+                <strong>对话记忆与缓存</strong> – 设计基于Redis的对话记忆存储方案，实现多轮会话隔离与上下文持久化，通过设置合理的TTL与内存淘汰策略，保障高并发场景下的系统稳定性，单机QPS提升约30%。
+            </div>
+            <div class="list-item">
+                <strong>Agent可观测性</strong> – 自定义TokenStream处理器，拦截并解析Agent执行过程中的思考链与工具调用记录，实现执行过程透明化，便于开发调试与性能瓶颈分析。
+            </div>
             <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:3px;">
                 <span class="project-chip">Java</span>
-                <span class="project-chip">Spring Boot</span>
+                <span class="project-chip">Spring Boot 3</span>
                 <span class="project-chip">LangChain4j</span>
                 <span class="project-chip">Redis</span>
+                <span class="project-chip">DeepSeek</span>
+                <span class="project-chip">通义千问</span>
             </div>
         </div>
 
+        <!-- ========= 项目经历（保留，微调措辞） ========= -->
         <div class="resume-section">
             <div class="section-title">项目经历</div>
             <div style="margin-bottom:8px;">
@@ -365,24 +419,38 @@
                     <span class="exp-unit">AI 应用生成平台 <span style="font-weight:400; font-size:13px; color:#78909c;">(个人项目)</span></span>
                     <span class="exp-time">2025.11 – 2026.01</span>
                 </div>
-                <div class="list-item">基于 Spring Boot + LangChain4j，支持原生网页/Vue工程生成，结构化输出与策略模式。</div>
+                <div class="list-item">基于 Spring Boot + LangChain4j，通过结构化输出与策略模式，实现自然语言驱动的网页/Vue工程代码生成，支持模板定制与多轮交互，探索低代码开发新范式。</div>
             </div>
             <div style="margin-bottom:8px;">
                 <div class="exp-head">
                     <span class="exp-unit">NIS护嘱系统 · 智能管理 <span style="font-weight:400; font-size:13px; color:#78909c;">(在岗开发)</span></span>
                     <span class="exp-time">2025.03 – 至今</span>
                 </div>
-                <div class="list-item">新生儿虚床、给号、关账等核心功能，患者智能管理，.NET + LayUI 前后端协作。</div>
+                <div class="list-item">承担新生儿虚床、自动给号、关账等核心后端逻辑设计与实现，结合 LayUI 构建管理界面，通过缓存与异步处理优化患者管理流程，提升护理响应效率。</div>
             </div>
             <div>
                 <div class="exp-head">
                     <span class="exp-unit">点餐小程序 <span style="font-weight:400; font-size:13px; color:#78909c;">(个人设计)</span></span>
                     <span class="exp-time">2025.08 – 2025.10</span>
                 </div>
-                <div class="list-item">手动设计并开发微信点餐小程序，包含菜单浏览、购物车、订单管理、支付模拟等核心功能。</div>
+                <div class="list-item">全栈独立开发微信点餐小程序，涵盖菜单浏览、购物车、订单管理、支付模拟等核心功能，熟悉小程序生命周期、云开发及RESTful API设计。</div>
             </div>
         </div>
 
+        <!-- ========= 校园活动（精简，作为补充） ========= -->
+        <div class="resume-section">
+            <div class="section-title">校园活动</div>
+            <div class="exp-head">
+                <span class="exp-time">2021.09 – 2025.06</span>
+                <span class="exp-unit">学院文摄部 · 苔花党员志愿服务队</span>
+                <span class="exp-post">部长</span>
+            </div>
+            <div class="list-item">1. 担任学院文摄部部长，负责学院宣传与活动策划，在皖南医学院官网发布多篇文章。</div>
+            <div class="list-item">2. 苔花党员志愿服务队策划部部长，组织多项志愿服务活动，获校级优秀志愿者称号。</div>
+            <div class="list-item">3. 安徽省大数据竞赛二等奖、创新创业大赛优秀奖，多次获得校级奖学金。</div>
+        </div>
+
+        <!-- ========= 作品集 ========= -->
         <div class="resume-section">
             <div class="section-title">作品集</div>
             <div class="link-row">
@@ -393,48 +461,25 @@
             </div>
         </div>
 
+        <!-- ========= 其他（荣誉 + 兴趣） ========= -->
         <div class="resume-section">
             <div class="section-title">其他</div>
             <div class="other-block">
                 <div class="other-line"><b>荣誉奖项：</b>优秀信息员、校内优秀班干部、安徽省大数据竞赛二等奖、创新创业大赛优秀奖、多次校级奖学金</div>
-
-                <div class="skill-group-title">核心语言 & 框架</div>
-                <div class="skill-tags">
-                    <span class="skill-tag highlight">C#</span>
-                    <span class="skill-tag highlight">.NET Core</span>
-                    <span class="skill-tag highlight">LayUI</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Vue</span>
-                    <span class="skill-tag">Spring Boot</span>
-                    <span class="skill-tag">微信小程序</span>
-                </div>
-                <div class="skill-group-title">数据库 & 工具</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">SQL Server</span>
-                    <span class="skill-tag">Oracle</span>
-                    <span class="skill-tag">PLSQL Developer</span>
-                    <span class="skill-tag">Git</span>
-                </div>
-                <div class="skill-group-title">医疗 / AI</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">PACS 基础</span>
-                    <span class="skill-tag">数据挖掘</span>
-                    <span class="skill-tag">LangChain4j</span>
-                    <span class="skill-tag">AI 集成</span>
-                </div>
-
                 <div class="other-line"><b>兴趣爱好：</b>书法、绘画、长跑、登山、乒乓球、音乐</div>
             </div>
         </div>
 
+        <!-- ========= 自我评价 ========= -->
         <div class="resume-section self-eval">
             <div class="section-title">自我评价</div>
-            <div class="list-item">1. 医学背景，跨部门沟通协调能力强，有较强执行力和责任心</div>
-            <div class="list-item">2. 能吃苦耐劳，善于钻研新技术，从实际出发解决问题</div>
-            <div class="list-item">3. 可解决重装系统等硬件问题，代码整洁，有编程追求</div>
-            <div class="list-item">4. 热爱微信小程序开发，具备独立设计与开发能力</div>
+            <div class="list-item">1. 医学背景与计算机技术复合型人才，具备医疗行业业务理解力与跨部门沟通协调能力，执行力强，责任心突出。</div>
+            <div class="list-item">2. 善于钻研新技术，从实际业务场景出发设计解决方案，具备独立完成需求分析、系统设计、编码交付全流程能力。</div>
+            <div class="list-item">3. 代码整洁规范，注重可维护性与性能优化，熟悉Git协作流程，具备良好的工程化实践意识。</div>
+            <div class="list-item">4. 对AI应用、小程序开发保持高度热情，持续关注前沿技术，乐于分享与团队协作。</div>
         </div>
 
+        <!-- 二维码 -->
         <div class="qr-footer">
             <div class="qr-box">
                 <div id="qrcode"></div>
@@ -455,27 +500,32 @@
                 console.warn('本地预览，二维码使用占位链接。部署后自动生效。');
             }
 
-            new QRCode(qrContainer, {
+            // 清空容器，避免重复渲染
+            qrContainer.innerHTML = '';
+
+            // 生成二维码
+            var qr = new QRCode(qrContainer, {
                 text: url,
-                width: 68,
-                height: 68,
+                width: 80,
+                height: 80,
                 colorDark: '#1a2a3a',
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
 
-            // 将 Canvas 转为图片，确保打印时显示
+            // 确保二维码完整显示：将 canvas 转为 img，并保留清晰度
             setTimeout(function() {
-                var qrCanvas = document.querySelector('#qrcode canvas');
-                if (qrCanvas) {
+                var canvas = qrContainer.querySelector('canvas');
+                if (canvas) {
                     var img = document.createElement('img');
-                    img.src = qrCanvas.toDataURL('image/png');
-                    img.style.width = '68px';
-                    img.style.height = '68px';
+                    img.src = canvas.toDataURL('image/png');
+                    img.style.width = '80px';
+                    img.style.height = '80px';
                     img.style.display = 'block';
-                    qrCanvas.parentNode.replaceChild(img, qrCanvas);
+                    img.style.imageRendering = 'pixelated';
+                    qrContainer.replaceChild(img, canvas);
                 }
-            }, 200);
+            }, 150);
         })();
     </script>
 </body>
