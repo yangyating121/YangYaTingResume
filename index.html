@@ -14,7 +14,7 @@
         }
         body {
             background: #f4f6f8;
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
             padding: 40px 20px;
         }
         .resume {
@@ -66,12 +66,20 @@
             border: 1px solid #ddd;
             flex-shrink: 0;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+        .photo .placeholder {
+            color: #aaa;
+            font-size: 14px;
+            text-align: center;
         }
         .section {
             margin-bottom: 24px;
@@ -107,25 +115,6 @@
             font-size: 13px;
             color: #777;
             margin-bottom: 2px;
-        }
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 8px;
-            padding-left: 4px;
-        }
-        .tech-tags span {
-            background: #eef2f6;
-            padding: 1px 10px;
-            border-radius: 3px;
-            font-size: 12px;
-            color: #2c3e50;
-            border: 1px solid #e0e5ec;
-        }
-        .tech-tags span.highlight {
-            background: #e2e9f2;
-            border-color: #c8d4e2;
-            font-weight: 500;
         }
         .qr {
             display: flex;
@@ -223,7 +212,7 @@
                 <p class="intent">求职方向：医疗IT开发 / .NET后端开发 / 医院信息系统开发</p>
             </div>
             <div class="photo">
-                <img src="photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px\'>📷</div>'">
+                <img src="photo.jpg" alt="证件照" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'placeholder\'>📷<br>证件照</div>'">
             </div>
         </div>
 
@@ -237,16 +226,6 @@
                 <div class="info"><strong>AI大模型：</strong>LangChain4j、LLM多模型集成、RAG检索增强、Token流式输出、Agent工具链、Redis持久化</div>
                 <div class="info"><strong>前端：</strong>LayUI、Vue2、ECharts、Bootstrap、HTML5、CSS3、微信小程序</div>
                 <div class="info"><strong>运维与工具：</strong>IIS、Windows Service、Log4Net、Swagger、Git、PLSQL Developer、Postman、PowerDesigner</div>
-            </div>
-        </div>
-
-        <!-- ===== 教育背景 ===== -->
-        <div class="section">
-            <h2>教育背景</h2>
-            <div class="item">
-                <div class="title">皖南医科大学 · 智能医学工程（本科）</div>
-                <div class="meta">2021.09 – 2025.06</div>
-                <div class="info">主修：数据结构与算法、数据库系统原理、医院信息系统、医学图像处理、DICOM标准、人工智能医学应用、软件工程</div>
             </div>
         </div>
 
@@ -305,6 +284,16 @@
             <div class="item">
                 <div class="info">CSDN博客：<a href="https://blog.csdn.net/weixin_67480430?type=blog" target="_blank" style="color:#1a5a8a;text-decoration:none;border-bottom:1px dotted #b0c8e0;">https://blog.csdn.net/weixin_67480430?type=blog</a></div>
                 <div class="info">GitHub：<a href="https://github.com/yangyaating121" target="_blank" style="color:#1a5a8a;text-decoration:none;border-bottom:1px dotted #b0c8e0;">https://github.com/yangyaating121</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 教育背景 ===== -->
+        <div class="section">
+            <h2>教育背景</h2>
+            <div class="item">
+                <div class="title">皖南医科大学 · 智能医学工程（本科）</div>
+                <div class="meta">2021.09 – 2025.06</div>
+                <div class="info">主修：数据结构与算法、数据库系统原理、医院信息系统、医学图像处理、DICOM标准、人工智能医学应用、软件工程</div>
             </div>
         </div>
 
