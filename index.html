@@ -105,7 +105,6 @@
             margin-bottom: 10px;
         }
 
-        /* 技术栈样式 */
         .tech-stack-wrapper {
             margin: 18px 0 22px 0;
             padding: 16px 18px;
@@ -221,7 +220,6 @@
             margin: 4px 0;
         }
 
-        /* ===== 二维码 - 简化布局 ===== */
         .qr-footer {
             display: flex;
             justify-content: flex-end;
@@ -231,34 +229,34 @@
         }
         .qr-box {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            gap: 14px;
+            gap: 6px;
             background: #fafbfc;
-            padding: 6px 16px 6px 10px;
+            padding: 10px 14px 8px 14px;
             border: 1px solid #e3e8ef;
             border-radius: 4px;
         }
         #qrcode {
-            width: 76px;
-            height: 76px;
+            width: 80px;
+            height: 80px;
             flex-shrink: 0;
             line-height: 0;
         }
+        #qrcode canvas,
         #qrcode img {
-            width: 76px !important;
-            height: 76px !important;
-            display: block;
+            width: 80px !important;
+            height: 80px !important;
+            display: block !important;
         }
         .qr-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #4a5a6a;
             font-weight: 500;
-            white-space: nowrap;
             letter-spacing: 0.3px;
+            text-align: center;
         }
 
-        /* 打印样式 */
         @media print {
             body {
                 background: #fff;
@@ -295,9 +293,10 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            #qrcode canvas,
             #qrcode img {
-                width: 76px !important;
-                height: 76px !important;
+                width: 80px !important;
+                height: 80px !important;
             }
         }
 
@@ -318,19 +317,19 @@
                 justify-content: center;
             }
             #qrcode {
-                width: 64px;
-                height: 64px;
+                width: 70px;
+                height: 70px;
             }
+            #qrcode canvas,
             #qrcode img {
-                width: 64px !important;
-                height: 64px !important;
+                width: 70px !important;
+                height: 70px !important;
             }
             .tech-stack-wrapper {
                 padding: 12px 14px;
             }
             .qr-box {
-                padding: 4px 12px 4px 8px;
-                gap: 10px;
+                padding: 8px 12px 6px 12px;
             }
             .qr-label {
                 font-size: 11px;
@@ -340,7 +339,6 @@
 </head>
 <body>
     <div class="resume-wrap">
-
         <div class="resume-header">
             <div class="header-text">
                 <div class="name-title">杨雅婷</div>
@@ -352,7 +350,7 @@
                 </div>
             </div>
             <div class="photo-box">
-                <img src="photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
+                <img src="C:\Users\lenovo\Desktop\YangYaTingResume\photo.jpg" alt="证件照" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:32px;\'>📷</div>'">
             </div>
         </div>
 
@@ -362,7 +360,6 @@
             </div>
         </div>
 
-        <!-- ===== 技术栈 ===== -->
         <div class="tech-stack-wrapper">
             <div class="section-title">技术栈</div>
             <div class="skill-tags">
@@ -390,7 +387,6 @@
             </div>
         </div>
 
-        <!-- ========= 教育经历 ========= -->
         <div class="resume-section">
             <div class="section-title">教育经历</div>
             <div class="exp-head">
@@ -403,7 +399,6 @@
             </div>
         </div>
 
-        <!-- ========= 工作经历 ========= -->
         <div class="resume-section">
             <div class="section-title">工作经历</div>
 
@@ -461,7 +456,6 @@
             </div>
         </div>
 
-        <!-- ========= 项目经历 ========= -->
         <div class="resume-section">
             <div class="section-title">项目经历</div>
             <div style="margin-bottom:8px;">
@@ -487,7 +481,6 @@
             </div>
         </div>
 
-        <!-- ========= 校园活动 ========= -->
         <div class="resume-section">
             <div class="section-title">校园活动</div>
             <div class="exp-head">
@@ -500,7 +493,6 @@
             <div class="list-item">3. 安徽省大数据竞赛二等奖、创新创业大赛优秀奖，多次获得校级奖学金。</div>
         </div>
 
-        <!-- ========= 作品集 ========= -->
         <div class="resume-section">
             <div class="section-title">作品集</div>
             <div class="link-row">
@@ -511,7 +503,6 @@
             </div>
         </div>
 
-        <!-- ========= 其他 ========= -->
         <div class="resume-section">
             <div class="section-title">其他</div>
             <div class="other-block">
@@ -520,7 +511,6 @@
             </div>
         </div>
 
-        <!-- ========= 自我评价 ========= -->
         <div class="resume-section self-eval">
             <div class="section-title">自我评价</div>
             <div class="list-item">1. 医学背景与计算机技术复合型人才，具备医疗行业业务理解力与跨部门沟通协调能力，执行力强，责任心突出。</div>
@@ -529,7 +519,6 @@
             <div class="list-item">4. 对AI应用、小程序开发保持高度热情，持续关注前沿技术，乐于分享与团队协作。</div>
         </div>
 
-        <!-- ===== 二维码 ===== -->
         <div class="qr-footer">
             <div class="qr-box">
                 <div id="qrcode"></div>
@@ -542,33 +531,32 @@
         (function() {
             var qrContainer = document.getElementById('qrcode');
             if (!qrContainer) return;
-
+            qrContainer.innerHTML = '';
             var url = window.location.href;
-
             if (url.startsWith('file://')) {
                 url = 'https://yangyaating121.github.io/YangYaTingResume/';
-                console.warn('本地预览，二维码使用占位链接。部署后自动生效。');
             }
-
-            // 清空并直接生成canvas
-            qrContainer.innerHTML = '';
-
-            var qr = new QRCode(qrContainer, {
-                text: url,
-                width: 76,
-                height: 76,
-                colorDark: '#1a2a3a',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
-
-            // 直接使用canvas，不转换为img，避免尺寸问题
-            // 确保canvas尺寸正确
-            var canvas = qrContainer.querySelector('canvas');
-            if (canvas) {
-                canvas.style.width = '76px';
-                canvas.style.height = '76px';
-                canvas.style.display = 'block';
+            try {
+                var qr = new QRCode(qrContainer, {
+                    text: url,
+                    width: 80,
+                    height: 80,
+                    colorDark: '#1a2a3a',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                setTimeout(() => {
+                    var img = qrContainer.querySelector('img');
+                    if(img) img.remove();
+                    var canvas = qrContainer.querySelector('canvas');
+                    if (canvas) {
+                        canvas.style.width = '80px';
+                        canvas.style.height = '80px';
+                        canvas.style.display = 'block';
+                    }
+                }, 10);
+            } catch (e) {
+                qrContainer.innerHTML = '<div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#f0f3f7;border:1px solid #ddd;border-radius:4px;font-size:11px;color:#666;text-align:center;padding:4px;">扫码<br>查看</div>';
             }
         })();
     </script>
