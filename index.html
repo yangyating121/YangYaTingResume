@@ -105,6 +105,22 @@
             margin-bottom: 10px;
         }
 
+        /* 技术栈独立样式，更突出 */
+        .tech-stack-section {
+            margin: 18px 0 22px 0;
+            padding: 16px 18px;
+            background: #f7f9fc;
+            border-radius: 6px;
+            border: 1px solid #e3e8ef;
+        }
+        .tech-stack-section .section-title {
+            border-bottom-color: #b8c8dd;
+            margin-bottom: 12px;
+        }
+        .tech-stack-section .skill-tags {
+            margin-bottom: 2px;
+        }
+
         .exp-head {
             display: flex;
             justify-content: space-between;
@@ -251,6 +267,11 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            .tech-stack-section {
+                background: #f7f9fc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
             #qrcode img,
             #qrcode canvas {
                 width: 80px !important;
@@ -283,6 +304,9 @@
                 width: 70px !important;
                 height: 70px !important;
             }
+            .tech-stack-section {
+                padding: 12px 14px;
+            }
         }
     </style>
 </head>
@@ -310,8 +334,8 @@
             </div>
         </div>
 
-        <!-- ========= 技术栈（最前面，独立模块） ========= -->
-        <div class="resume-section">
+        <!-- ========= 技术栈（独立模块，带背景色突出显示） ========= -->
+        <div class="tech-stack-section">
             <div class="section-title">技术栈</div>
             <div class="skill-tags" style="margin-bottom:6px;">
                 <span class="skill-tag highlight">C#</span>
@@ -411,7 +435,7 @@
             </div>
         </div>
 
-        <!-- ========= 项目经历（保留，微调措辞） ========= -->
+        <!-- ========= 项目经历 ========= -->
         <div class="resume-section">
             <div class="section-title">项目经历</div>
             <div style="margin-bottom:8px;">
@@ -437,7 +461,7 @@
             </div>
         </div>
 
-        <!-- ========= 校园活动（精简，作为补充） ========= -->
+        <!-- ========= 校园活动 ========= -->
         <div class="resume-section">
             <div class="section-title">校园活动</div>
             <div class="exp-head">
